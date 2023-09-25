@@ -22,7 +22,7 @@ const Interface = ({
         value={puzzleStatus ? puzzleStatus : "hello"}
       />
 
-      <div className=" flex flex-row gap-8 justify-center">
+      <div className=" flex flex-row gap-6 justify-center">
         {buttons.map((name, index) => (
           <Fragment key={index}>
             <form
