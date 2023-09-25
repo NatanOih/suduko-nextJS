@@ -28,7 +28,9 @@ const Interface = ({
             <form
               action={async () => {
                 if (name == "Reset") {
-                  setGrid(initialGrid);
+                  let temp = [];
+                  Util.copyGrid(initialGrid, temp);
+                  setGrid(temp);
                   return;
                 }
                 const Results = await myAction(name, grid);
