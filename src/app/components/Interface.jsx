@@ -27,6 +27,10 @@ const Interface = ({
           <Fragment key={index}>
             <form
               action={async () => {
+                if (name == "Reset") {
+                  setGrid(initialGrid);
+                  return;
+                }
                 const Results = await myAction(name, grid);
                 if (Results.error) {
                   console.log("Results.error", Results.error);
