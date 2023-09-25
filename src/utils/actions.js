@@ -10,11 +10,11 @@ export async function myAction(action, grid) {
         console.log("creating...");
         let sudoku = new Sudoku();
         const game = sudoku.puzzle;
-        await fs.writeFile(
-          "./src/server/initialGrid.txt",
-          JSON.stringify(game),
-          "utf8"
-        );
+        // await fs.writeFile(
+        //   "./src/server/initialGrid.txt",
+        //   JSON.stringify(game),
+        //   "utf8"
+        // );
         return Promise.resolve({
           game: game,
           status: "NEW GAME-ENJOY",
