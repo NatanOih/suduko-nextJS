@@ -20,7 +20,7 @@ const Tile = ({
       return (
         <input
           className={twMerge(
-            "w-[9.1vw] h-[9.1vw] sm:w-[4rem] sm:h-[4rem] sm:rounded-[1.1rem] rounded-[0.8rem]  items-center text-center border-[1px] border-black cursor-pointer bg-slate-100 caret-transparent tile",
+            "w-[9.1vw] h-[9.1vw] sm:w-[4rem] sm:h-[4rem] sm:rounded-[1.1rem] rounded-[0.8rem] font-bold xm:text-2xl text-xl  items-center text-center border-[1px] border-black cursor-pointer bg-slate-100 caret-transparent tile",
             `${colIndex % 3 === 2 && colIndex != 8 ? "mr-2" : ""}`,
             `${rowIndex % 3 === 2 && rowIndex != 8 ? "mb-2" : ""}`,
             `${value !== 0 ? "taken font-bold font-mono " : ""}`,

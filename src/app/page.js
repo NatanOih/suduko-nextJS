@@ -36,7 +36,7 @@ export default function Home() {
 
   return (
     <main
-      className={`flex flex-col sm:gap-8 gap-2 items-center justify-center px-4 min-h-[100vh] bg-mainbg transition-transform duration-300 ease-in-out `}
+      className={`flex flex-col sm:gap-8 gap-6 items-center justify-center px-4 min-h-[100vh] bg-mainbg transition-transform duration-300 ease-in-out `}
     >
       <Board
         initialGrid={initialGrid.current}

@@ -102,7 +102,7 @@ body {
 
 .highlight {
   background-color: var(--color1);
-  filter: blur(0.5px);
+  filter: blur(0.2px);
   box-shadow: 1px 1px 9px -4px rgba(255, 255, 255, 0.2);
   transform: scale(0.97);
   transition: ease-in-out 300ms;
