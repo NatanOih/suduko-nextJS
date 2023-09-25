@@ -38,6 +38,7 @@ const Tile = ({
           onClick={() => SetselecetCell([rowIndex, colIndex])}
           value={value === 0 ? "" : value}
           key={rowIndex + "" + colIndex}
+          readOnly
         />
       );
     });
