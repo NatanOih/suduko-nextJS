@@ -21,7 +21,7 @@ export async function myAction(action, grid) {
           init: game,
         });
       } catch (error) {
-        return Promise.resolve({ error: error });
+        return { error: error };
         console.log(error);
       }
       break;
