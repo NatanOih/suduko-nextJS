@@ -11,7 +11,11 @@ export async function myAction(action, grid) {
         console.log("creating...");
         let sudoku = new Sudoku();
         const game = sudoku.puzzle;
-        await fs.writeFile("initialGrid.txt", JSON.stringify(game), "utf8");
+        await fs.writeFile(
+          "./src/server/initialGrid.txt",
+          JSON.stringify(game),
+          "utf8"
+        );
         return Promise.resolve({
           game: game,
           status: "NEW GAME-ENJOY",
@@ -60,7 +64,7 @@ export async function myAction(action, grid) {
     case "reset":
       try {
         console.log("Reseting...");
-        const data = await fs.readFile("initialGrid.txt", "utf8");
+        const data = await fs.readFile("./src/server/initialGrid.txt", "utf8");
         console.log("data");
         return Promise.resolve({
           game: JSON.parse(data),
