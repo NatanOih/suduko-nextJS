@@ -21,8 +21,8 @@ export async function myAction(action, grid) {
           init: game,
         });
       } catch (error) {
-        return { error: error };
         console.log(error);
+        return { error: error };
       }
       break;
     case "solve":

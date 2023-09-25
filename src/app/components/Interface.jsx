@@ -29,6 +29,7 @@ const Interface = ({
               action={async () => {
                 const Results = await myAction(name, grid);
                 if (Results.error) {
+                  console.log("Results.error", Results.error);
                   alert(Results.error);
                 }
                 setGrid(Results?.game);
