@@ -1,7 +1,6 @@
 "use server";
 import fs from "fs/promises";
 import { Sudoku } from "@/server/sudoku";
-import { REST } from "./functions";
 import { Util } from "@/server/Util";
 
 export async function myAction(action, grid) {
@@ -22,6 +21,7 @@ export async function myAction(action, grid) {
           init: game,
         });
       } catch (error) {
+        return Promise.resolve({ error: error });
         console.log(error);
       }
       break;

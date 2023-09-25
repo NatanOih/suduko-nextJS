@@ -1,6 +1,6 @@
 "use client";
 import { Util } from "@/server/Util";
-import { myAction } from "@/utils/serverActions";
+import { myAction } from "@/utils/actions";
 import React, { Fragment } from "react";
 
 const Interface = ({
@@ -28,8 +28,11 @@ const Interface = ({
             <form
               action={async () => {
                 const Results = await myAction(name, grid);
-                setGrid(Results.game);
-                setPuzzleStatus(Results.status);
+                if (Results.error) {
+                  alert(Results.error);
+                }
+                setGrid(Results?.game);
+                setPuzzleStatus(Results?.status);
                 if (Results.init != null) {
                   Util.copyGrid(Results.init, initialGrid);
                 }
