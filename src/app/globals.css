@@ -9,7 +9,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
-  --color1: #fff5e0cc;
+  --color1: #bfe4e1f6;
   --color1-dark: rgb(182, 203, 230);
   --color1-darker: rgb(54, 82, 119);
   --color2: rgb(28, 27, 31);
@@ -102,5 +102,9 @@ body {
 
 .highlight {
   background-color: var(--color1);
+  filter: blur(0.5px);
+  box-shadow: 1px 1px 9px -4px rgba(255, 255, 255, 0.2);
+  transform: scale(0.97);
+  transition: ease-in-out 300ms;
   color: rgb(0, 0, 0);
 }
