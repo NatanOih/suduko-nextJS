@@ -3,16 +3,26 @@
 import React, { useState } from "react";
 import { twMerge } from "tailwind-merge";
 import useIsMobile from "../hooks/useIsMobile";
+import { useAtom } from "jotai";
+import { Grid, InitGrid, PickCell } from "../lib/atomStates";
 
-const Tile = ({
-  initialGrid,
-  grid,
-  handleChange,
-  SetselecetCell,
-  selectedCell,
-}) => {
+const Tile = () => {
+  const [selectedCell, SetselecetCell] = useAtom(PickCell);
   const [focus, setFocus] = useState(false);
+  const [grid, setGrid] = useAtom(Grid);
+  const [initialGrid, setInitialGrid] = useAtom(InitGrid);
   const isMobile = useIsMobile();
+
+  const handleChange = (row, col, e) => {
+    e.preventDefault();
+    let n = Number(String(e.target.value).slice(-1));
+    if (n < 10 && initialGrid[row][col] === 0) {
+      const newerGrid = [...grid];
+      newerGrid[row][col] = n;
+      setGrid(newerGrid);
+    }
+  };
+
   return grid.map((row, rowIndex) => {
     return row.map((col, colIndex) => {
       const value = col;

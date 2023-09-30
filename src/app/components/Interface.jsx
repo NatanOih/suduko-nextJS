@@ -1,17 +1,15 @@
 "use client";
 import { Util } from "@/server/Util";
 import { myAction } from "@/utils/actions";
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
+import { Grid, InitGrid } from "../lib/atomStates";
+import { useAtom } from "jotai";
 
-const Interface = ({
-  grid,
-  puzzleStatus,
-  initialGrid,
-  setPuzzleStatus,
-  setGrid,
-}) => {
+const Interface = () => {
   const buttons = ["Create", "Validate", "Solve", "Reset"];
-  // const [response, setResponse] = useState({});
+  const [puzzleStatus, setPuzzleStatus] = useState("");
+  const [initialGrid, setInitialGrid] = useAtom(InitGrid);
+  const [grid, setGrid] = useAtom(Grid);
 
   return (
     <section className=" flex gap-4 items-center justify-center flex-col ">
@@ -41,7 +39,9 @@ const Interface = ({
                 setGrid(Results?.game);
                 setPuzzleStatus(Results?.status);
                 if (Results.init != null) {
-                  Util.copyGrid(Results.init, initialGrid);
+                  let temp = [];
+                  Util.copyGrid(Results.init, temp);
+                  setInitialGrid(temp);
                 }
               }}
             >
