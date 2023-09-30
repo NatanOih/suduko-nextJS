@@ -1,4 +1,5 @@
 This is a project i used to learn about nextJS.
+visit here https://suduko-next-js.vercel.app/
 
 I utilized nextJS server actions to maintain the sudoko logic elements inside the server, the sudoko itself is a class of utilities i used to create and solve the sudoko.
 
@@ -7,4 +8,4 @@ I track the current game with also concidering refreshes (local storage) and a s
 
 For the state managment i tried to avoid using Redux and wanted to keep it minimal and simple, i have researched few state managment libraries and zustand/jotai were the best options i have found. Eventually decided to use jotai.
 
-For the css i used tailwind.
+All the frontend tricks and gimiks are with pure logic and tailwind, experimented with tailwind merge (and it works well).
