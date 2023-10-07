@@ -1,5 +1,5 @@
 "use server";
-import fs from "fs/promises";
+
 import { Sudoku } from "@/server/sudoku";
 import { Util } from "@/server/Util";
 
@@ -9,16 +9,11 @@ export async function myAction(action, grid) {
       try {
         console.log("creating...");
         let sudoku = new Sudoku();
-        const game = sudoku.puzzle;
-        // await fs.writeFile(
-        //   "./src/server/initialGrid.txt",
-        //   JSON.stringify(game),
-        //   "utf8"
-        // );
+        const game = await sudoku.puzzle;
         return Promise.resolve({
           game: game,
           status: "NEW GAME-ENJOY",
-          init: game,
+          init: true,
         });
       } catch (error) {
         console.log(error);
@@ -61,21 +56,21 @@ export async function myAction(action, grid) {
       }
 
       break;
-    case "reset":
-      try {
-        console.log("Reseting...");
-        const data = await fs.readFile("./src/server/initialGrid.txt", "utf8");
-        console.log("data");
-        return Promise.resolve({
-          game: JSON.parse(data),
-          status: "Restarted",
-          init: JSON.parse(data),
-        });
-      } catch (error) {
-        console.log(error);
-      }
+    // case "reset":
+    //   try {
+    //     console.log("Reseting...");
+    //     const data = await fs.readFile("./src/server/initialGrid.txt", "utf8");
+    //     console.log("data");
+    //     return Promise.resolve({
+    //       game: JSON.parse(data),
+    //       status: "Restarted",
+    //       init: JSON.parse(data),
+    //     });
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
 
-      break;
+    //   break;
     default:
       throw new Error("Invalid action");
   }

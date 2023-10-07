@@ -4,12 +4,14 @@ import { myAction } from "@/utils/actions";
 import React, { Fragment, useState } from "react";
 import { Grid, InitGrid } from "../lib/atomStates";
 import { useAtom } from "jotai";
+import { Spinner } from "./Spinner";
 
 const Interface = () => {
   const buttons = ["Create", "Validate", "Solve", "Reset"];
   const [puzzleStatus, setPuzzleStatus] = useState("");
   const [initialGrid, setInitialGrid] = useAtom(InitGrid);
   const [grid, setGrid] = useAtom(Grid);
+  const [loading, setLoading] = useState(false);
 
   return (
     <section className=" flex gap-4 items-center justify-center flex-col ">
@@ -29,6 +31,7 @@ const Interface = () => {
                   let temp = [];
                   Util.copyGrid(initialGrid, temp);
                   setGrid(temp);
+                  setLoading(false);
                   return;
                 }
                 const Results = await myAction(name, grid);
@@ -38,15 +41,21 @@ const Interface = () => {
                 }
                 setGrid(Results?.game);
                 setPuzzleStatus(Results?.status);
-                if (Results.init != null) {
-                  let temp = [];
-                  Util.copyGrid(Results.init, temp);
-                  setInitialGrid(temp);
+                if (Results?.init) {
+                  let temp2 = [];
+                  Util.copyGrid(Results?.game, temp2);
+                  setInitialGrid((prev) => temp2);
                 }
+                setLoading(false);
               }}
             >
-              <button className="lg:w-[7rem] w-full p-1 active:scale-90 rounded bg-blue-200  border-solid border-2 shadow-md box-border text-black cursor-pointer inline-block font-['neucha'] lg:text-3xl md:text-2xl text-xl leading-23 outline-none  no-underline transition-transform duration-235 select-none touch-manipulation relative z-10 hover:hover:translate-y-2">
-                {name}
+              <button
+                onClick={() => setLoading(true)}
+                className="lg:w-[7rem] w-[7rem] p-1 active:scale-90 rounded bg-blue-200  border-solid border-2 shadow-md box-border text-black cursor-pointer  font-['neucha'] lg:text-3xl md:text-2xl text-xl leading-23 outline-none  no-underline transition-transform duration-235 select-none touch-manipulation relative z-10 hover:translate-y-2 items-center flex justify-center "
+                // disabled={loading ? true : false}
+                type="submit"
+              >
+                {loading ? <Spinner /> : name}
               </button>
             </form>
           </Fragment>

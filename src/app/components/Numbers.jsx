@@ -3,13 +3,13 @@ import React from "react";
 import { AiFillDelete } from "react-icons/ai";
 import NumberButton from "./NumberButton";
 import { Grid, InitGrid, PickCell } from "../lib/atomStates";
-import { useAtom } from "jotai";
+import { useAtom, useAtomValue } from "jotai";
 
 function Numbers() {
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   const [grid, setGrid] = useAtom(Grid);
-  const [selectedCell, SetselecetCell] = useAtom(PickCell);
-  const [initialGrid, setInitialGrid] = useAtom(InitGrid);
+  const selectedCell = useAtomValue(PickCell);
+  const initialGrid = useAtomValue(InitGrid);
 
   const setActiveNumber = (number) => {
     const [row, col] = selectedCell;
