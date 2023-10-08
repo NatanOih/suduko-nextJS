@@ -1,9 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Neucha&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Neucha&display=swap");
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -41,7 +41,7 @@
   --font-size-xl: 3rem;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
@@ -57,23 +57,9 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-}
+} */
 
 .tile {
-  /* width: var(--sudoku-cell-size);
-  height: var(--sudoku-cell-size);
-  border-radius: var(--border-radius);
-  background-color: var(--bg-main);
-  color: var(--blue);
-  display: grid;
-  place-items: center;
-  text-align: center;
-  font-size: var(--font-size);
-  cursor: pointer;
-  border: 1px solid black;
-  /* margin-left: -1px;
-  margin-top: -1px; */
-  /* caret-color: transparent;  */
   box-shadow: #63627754 0px 2px 4px, #6767745d 0px 7px 13px -3px,
     #3f3b6c54 0px -3px 0px inset;
 }
