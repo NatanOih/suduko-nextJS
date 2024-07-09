@@ -1,7 +1,7 @@
 "use server";
 
-import { Sudoku } from "@/server/sudoku";
-import { Util } from "@/server/Util";
+import { Sudoku } from "../server/sudoku";
+import { Util } from "../server/util";
 
 export async function myAction(action, grid) {
   switch (action.toLowerCase()) {
@@ -74,4 +74,12 @@ export async function myAction(action, grid) {
     default:
       throw new Error("Invalid action");
   }
+}
+
+export async function hangGameReset() {
+  return await fetch("https://random-word-api.herokuapp.com/word", {
+    cache: "no-store",
+  })
+    .then((response) => response.json())
+    .then((data) => data[0]);
 }

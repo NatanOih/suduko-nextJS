@@ -41,7 +41,7 @@
   --font-size-xl: 3rem;
 }
 
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
@@ -57,7 +57,7 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-} */
+}
 
 .tile {
   box-shadow: #63627754 0px 2px 4px, #6767745d 0px 7px 13px -3px,
@@ -67,8 +67,8 @@ body {
 .tile:hover {
   background-color: var(--filled-bg);
   color: var(--filled-color);
-  transform: scale(1.1);
-  transition: 0.3s ease-in-out;
+  transform: scale(1.05);
+  /* transition: 0.1s ease-in-out; */
 }
 
 .tile:focus {
@@ -91,6 +91,86 @@ body {
   filter: blur(0.2px);
   box-shadow: 1px 1px 9px -4px rgba(255, 255, 255, 0.2);
   transform: scale(0.97);
-  transition: ease-in-out 300ms;
+  transition: ease-in-out 200ms;
   color: rgb(0, 0, 0);
+}
+
+.key {
+  border-radius: 6px;
+  border: 1px solid black;
+  margin: 0.11rem;
+  width: 45px;
+  height: 45px;
+  font-size: 1.4rem;
+  color: hsl(200, 25%, 75%);
+  box-shadow: 2px -2px 3px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  transition: 0.1s;
+  aspect-ratio: 1/1;
+  font-weight: bold;
+  text-transform: uppercase;
+  overflow: hidden;
+}
+
+.key:is(:disabled) {
+  cursor: auto;
+}
+.key:hover:not(:disabled) {
+  background-color: hsl(250, 13%, 25%);
+  color: hsl(250, 13%, 75%);
+  transition: 0.1s;
+  box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.6);
+}
+
+.key:hover:not(:disabled)::before {
+  box-shadow: 1px -1px 1px rgba(185, 181, 181, 0.097);
+}
+
+.key:active:not(:disabled) {
+  scale: 0.93;
+  box-shadow: 0px 0px 0px rgba(185, 181, 181, 0.37);
+  color: hsl(200, 30%, 95%);
+  background-color: hsl(195, 8%, 10%);
+}
+.key:active:not(:disabled)::before {
+  scale: 0.93;
+  box-shadow: 6px -1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.key.active {
+  scale: 0.93;
+  box-shadow: 0px 0px 0px rgba(185, 181, 181, 0.37);
+  color: hsl(200, 30%, 95%);
+  background-color: hsl(195, 8%, 10%);
+}
+
+.key.active::before {
+  scale: 0.93;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.4);
+}
+
+.key.inacive {
+  opacity: 0.3;
+  scale: 0.97;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.4);
+}
+
+@media screen and (max-width: 900px) {
+  .spacer {
+    height: 100vh;
+  }
+  .drawing {
+    scale: 0.8;
+    /* bottom: 100px ; */
+  }
+
+  .word-container {
+    scale: 0.6;
+  }
+
+  .key {
+    width: 31px;
+    height: 31px;
+    border-radius: 10px;
+  }
 }

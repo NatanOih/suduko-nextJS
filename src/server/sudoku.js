@@ -1,5 +1,5 @@
 import { SudokuUtil } from "./SudokuUtil.js";
-import { Util } from "./Util.js";
+import { Util } from "./util.js";
 
 export class Sudoku {
   constructor(sudoku) {

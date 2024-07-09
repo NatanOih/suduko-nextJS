@@ -1,10 +1,12 @@
 "use client";
-import { Util } from "@/server/Util";
-import { myAction } from "@/utils/actions";
+
 import React, { Fragment, useState } from "react";
 import { Grid, InitGrid } from "../lib/atomStates";
 import { useAtom } from "jotai";
 import { Spinner } from "./Spinner";
+import { Util } from "../../server/util";
+
+import { myAction } from "../../utils/actions";
 
 const Interface = () => {
   const buttons = ["Create", "Validate", "Solve", "Reset"];
@@ -22,14 +24,14 @@ const Interface = () => {
         value={puzzleStatus ? puzzleStatus : "hello"}
       />
 
-      <div className=" flex flex-row gap-6 justify-center">
+      <div className=" flex flex-row gap-6 justify-center items-center">
         {buttons.map((name, index) => (
           <Fragment key={index}>
             <form
               action={async () => {
                 if (name == "Reset") {
                   let temp = [];
-                  Util.copyGrid(initialGrid, temp);
+                  await Util.copyGrid(initialGrid, temp);
                   setGrid(temp);
                   setLoading(false);
                   return;
@@ -51,11 +53,13 @@ const Interface = () => {
             >
               <button
                 onClick={() => setLoading(true)}
-                className="lg:w-[7rem] w-[7rem] p-1 active:scale-90 rounded bg-blue-200  border-solid border-2 shadow-md box-border text-black cursor-pointer  font-['neucha'] lg:text-3xl md:text-2xl text-xl leading-23 outline-none  no-underline transition-transform duration-235 select-none touch-manipulation relative z-10 hover:translate-y-2 items-center flex justify-center "
+                className=" w-[7rem] h-[3rem] p-1 active:scale-95 rounded bg-blue-200  border-solid border-2 shadow-md box-border text-black cursor-pointer  font-['neucha'] lg:text-3xl md:text-2xl text-xl leading-23 outline-none  no-underline transition-transform duration-235 select-none touch-manipulation  z-10 hover:translate-y-1  flex justify-center items-center "
                 // disabled={loading ? true : false}
                 type="submit"
               >
-                {loading ? <Spinner /> : name}
+                <div className="w-[4rem] h-[2rem] flex justify-center">
+                  {loading ? <Spinner /> : name}
+                </div>
               </button>
             </form>
           </Fragment>

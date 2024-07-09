@@ -1,5 +1,3 @@
-import { Sudoku } from "@/server/sudoku";
-
 const functions = {
   getGrid: () => {
     return Array(9)

@@ -19,6 +19,26 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      boxShadow: {
+        "custom-1": "3px 3px 1px rgba(0, 0, 0, 0.6)",
+        "custom-2": "1px -1px 1px rgba(185, 181, 181, 0.097)",
+        "custom-3": "0px 0px 0px rgba(185, 181, 181, 0.37)",
+        "custom-4": "6px -1px 3px rgba(0, 0, 0, 0.8)",
+        "custom-5": "0px 0px 0px rgba(0, 0, 0, 0.4)",
+      },
+      scale: {
+        93: "0.93",
+        97: "0.97",
+      },
+      colors: {
+        "hsl-250-13-25": "hsl(250, 13%, 25%)",
+        "hsl-250-13-75": "hsl(250, 13%, 75%)",
+        "hsl-200-30-95": "hsl(200, 30%, 95%)",
+        "hsl-195-8-10": "hsl(195, 8%, 10%)",
+      },
+      opacity: {
+        30: "0.3",
+      },
     },
   },
   plugins: [],
